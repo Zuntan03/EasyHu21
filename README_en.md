@@ -28,12 +28,18 @@ Requires a Windows PC equipped with recent NVIDIA GPUs.
 	On first startup, old workflows from browser cache may open and cause errors.  
 	Please ignore the errors and close the workflows.**
 	- For GPUs prior to GeForce RTX 20x0, launch with `ComfyUi_OldGpu.bat`.
-2. **After launching `ComfyUI.bat`, open the `Easy/00-TextToImage` workflow and click `Queue Prompt` to generate images.**  
+2. **After launching `ComfyUI.bat`, open the `Hu21/00-TextToImage` workflow and click `Queue Prompt` to generate images.**  
 Then click `Queue Prompt` as-is to generate videos.
 	- **If VRAM is less than 12GB, please adjust the red `VirtualVram` setting in the upper left.**
 		- For 8GB VRAM use `7`, for 6GB use `9`.
 		- For 16GB or more VRAM, set to `0`.
+		- Set the lowest value that doesn't cause VRAM shortage. Setting unnecessarily high values will reduce GPU utilization.
 	- Initial generation takes time for initialization. To check generation time, try generating a second image.
+
+You can optimize for speed using the red nodes at the top of the workflow according to your PC specs.
+- Reduce `VirtualVram` to the lowest value that doesn't cause VRAM shortage.
+- If VAE encoding/decoding doesn't cause VRAM shortage, you can disable `TiledVae`.
+- For GeForce RTX 30x0 and above, you can enable `TorchCompile`. Only the first execution takes extra time.
 
 - Update with `Update.bat`.
 	- Automatic file downloads during updates can be toggled with `EasyHu21/AutoDownload_(Enable|Disable).bat`.  

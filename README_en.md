@@ -1,11 +1,12 @@
-﻿<!-- Ruby for English is easy wan nyan nyan -->
-# <ruby>EasyHu21<rt>Easy Hu Nyan Wan</rt></ruby>
+﻿<!-- Ruby for English is easy Hu Nyan One -->
+# <ruby>EasyHu21<rt>Easy Hu Nyan One</rt></ruby>
 
 This is experimental and under construction.
 
 [日本語 README](README.md)
 
-An environment for easily trying [HunyuanImage-2.1](https://github.com/Tencent-Hunyuan/HunyuanImage-2.1) on Windows PCs equipped with NVIDIA GPUs.
+An environment for easily trying [HunyuanImage-2.1](https://github.com/Tencent-Hunyuan/HunyuanImage-2.1).  
+Requires a Windows PC equipped with recent NVIDIA GPUs.
 
 ## Installation
 
@@ -26,8 +27,13 @@ An environment for easily trying [HunyuanImage-2.1](https://github.com/Tencent-H
 	- **[ Warning ][ ComfyUI Trap ][ Many Victims ]  
 	On first startup, old workflows from browser cache may open and cause errors.  
 	Please ignore the errors and close the workflows.**
+	- For GPUs prior to GeForce RTX 20x0, launch with `ComfyUi_OldGpu.bat`.
 2. **After launching `ComfyUI.bat`, open the `Easy/00-TextToImage` workflow and click `Queue Prompt` to generate images.**  
 Then click `Queue Prompt` as-is to generate videos.
+	- **If VRAM is less than 12GB, please adjust the red `VirtualVram` setting in the upper left.**
+		- For 8GB VRAM use `7`, for 6GB use `9`.
+		- For 16GB or more VRAM, set to `0`.
+	- Initial generation takes time for initialization. To check generation time, try generating a second image.
 
 - Update with `Update.bat`.
 	- Automatic file downloads during updates can be toggled with `EasyHu21/AutoDownload_(Enable|Disable).bat`.  

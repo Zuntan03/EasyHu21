@@ -1,4 +1,17 @@
-﻿<!-- Ruby for English is easy Hu Nyan One -->
+﻿<!-- Ruby for English is Easy Hu Nyan One -->
+# <ruby>EasyHu21<rt>Easy Hu Nyan One</rt></ruby>
+
+This is an experimental environment.
+
+[日本語 README](README.md)
+
+An environment for easily trying [HunyuanImage-2.1](https://github.com/Tencent-Hunyuan/HunyuanImage-2.1).  
+Requires a Windows PC equipped with recent NVIDIA GPUs.
+
+With VRAM 12GB GeForce RTX 3060 12GB and RAM 64GB, generates HunyuanImage-2.1 standard size images (2304x1792, equivalent to 2 Full HD images) in about 70 seconds.  
+While not a recommended environment, with VRAM 6GB GeForce GTX 1660Ti and RAM 16GB, generates Full HD images in about 7 minutes.
+
+![](https://raw.githubusercontent.com/wiki/Zuntan03/EasyHu21/log/2509/GeforceGtx1660Ti.webp) for English is easy Hu Nyan One -->
 # <ruby>EasyHu21<rt>Easy Hu Nyan One</rt></ruby>
 
 This is experimental and under construction.
@@ -33,16 +46,21 @@ Then click `Queue Prompt` as-is to generate videos.
 	- **If VRAM is less than 12GB, please adjust the red `VirtualVram` setting in the upper left.**
 		- For 8GB VRAM use `7`, for 6GB use `9`.
 		- For 16GB or more VRAM, set to `0`.
-		- Set the lowest value that doesn't cause VRAM shortage. Setting unnecessarily high values will reduce GPU utilization.
-	- Initial generation takes time for initialization. To check generation time, try generating a second image.
+		- Set the lowest value that doesn't cause VRAM shortage.  
+		Setting unnecessarily high values seems to reduce GPU utilization.
+	- If VAE encoding/decoding causes VRAM shortage, please reduce the image generation size.  
+		- GeForce GTX 1660Ti with 6GB VRAM was able to decode Full HD (1920x1088).
+		- Switching to `TiledVae` is supported, but may leave stripe patterns in the image.
+			- If `TiledVae` works properly, standard size 2048x2048 can be generated with 6GB VRAM.
+	- Initial generation takes time for initialization.  
+	To check generation time, try generating a second image.
 
 You can optimize for speed using the red nodes at the top of the workflow according to your PC specs.
 - Reduce `VirtualVram` to the lowest value that doesn't cause VRAM shortage.
-- If VAE encoding/decoding doesn't cause VRAM shortage, you can disable `TiledVae`.
-- For GeForce RTX 30x0 and above, you can enable `TorchCompile`. Only the first execution takes extra time.
+- For GeForce RTX 30x0 and above, you can enable `TorchCompile`. The first execution takes extra time for compilation.
 
-- Update with `Update.bat`.
-	- Automatic file downloads during updates can be toggled with `EasyHu21/AutoDownload_(Enable|Disable).bat`.  
+Update with `Update.bat`.
+- Automatic file downloads during updates can be toggled with `EasyHu21/AutoDownload_(Enable|Disable).bat`.  
 	However, disabling this may cause updated workflows in `Easy/*` to not work properly.
 
 ## Recent Update History

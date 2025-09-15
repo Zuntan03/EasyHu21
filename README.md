@@ -1,12 +1,17 @@
-﻿<!-- 英語のルビは easy Hu Nyan One -->
-# <ruby>EasyHu21<rt>ｲｰｼﾞﾌﾆｬﾝﾜﾝ</rt></ruby>
+﻿<!-- 英語のルビは Easy Hu Nyan One -->
+# <ruby>EasyHu21<rt>ｲｰｼﾞｰ ﾌﾆｬﾝﾜﾝ</rt></ruby>
 
-実験的で工事中です。
+実験的な環境です。
 
 [English README](README_en.md)
 
 [HunyuanImage-2.1](https://github.com/Tencent-Hunyuan/HunyuanImage-2.1) を簡単に試せる環境です。  
 最近の NVIDIA GPU を搭載した Windows PC が必要です。
+
+VRAM 12GB の Geforce RTX 3060 12GB, RAM 64GB で、HunyuanImage-2.1 の標準サイズ画像 (2304x1792, FullHD 2枚分) を 70秒程度で生成します。  
+推奨できる環境ではありませんが、VRAM 6GB の Geforce GTX 1660Ti, RAM 16GB で FullHD 画像を 7分程度で生成します。
+
+![](https://raw.githubusercontent.com/wiki/Zuntan03/EasyHu21/log/2509/GeforceGtx1660Ti.webp)
 
 ## インストール
 
@@ -33,16 +38,21 @@
 	- **VRAM が 12GB 未満の場合は、左上の赤い `VirtualVram` を調整してください。**
 		- VRAM 8GB なら `7`、6GB なら `9` です。
 		- VRAM が 16GB 以上なら `0` にします。
-		- VRAM 不足が起こらない範囲で、低い値を設定します。必要以上に高い値を設定すると、GPU の稼働率が下がります。
-	- 初回の生成は初期化で時間が掛かります。生成時間を確認するには、続けて 2枚目を生成してみてください。
+		- VRAM 不足が起こらない範囲で、低い値を設定します。  
+		必要以上に高い値を設定すると、GPU の稼働率が下がるようです。
+	- VAE のエンコードやデコードで VRAM 不足にならなる場合は、生成する画像のサイズを減らしてください。  
+		- VRAM 6GB の Geforce GTX 1660Ti で FullHD(1920x1088) をデコードできました。
+		- `TiledVae` への切り替えに対応していますが、画像に縞模様が残ります。
+			- `TiledVae` が正常に動作すれば、VRAM 6GB で標準サイズの 2048x2048 を生成できます。
+	- 初回の生成は初期化で時間が掛かります。  
+	生成時間を確認するには、続けて 2枚目を生成してみてください。
 
 ワークフロー上部の赤いノードで、PC のスペックに合わせて高速化できます。
 - `VirtualVram` を VRAM 不足にならない範囲で減らします。
-- VAE のエンコードやデコードで VRAM 不足にならないなら、`TiledVae` を無効にできます。
-- Geforce RTX 30x0 以上なら、`TorchCompile` を有効にできます。初回実行のみ時間が掛かります。
+- Geforce RTX 30x0 以上なら、`TorchCompile` を有効にできます。初回実行ではコンパイルで時間が掛かります。
 
-- `Update.bat` で更新します。
-	- 更新時のファイルの自動ダウンロードは `EasyHu21/AutoDownload_(Enable|Disable).bat` で切り替えられます。  
+`Update.bat` で更新します。
+- 更新時のファイルの自動ダウンロードは `EasyHu21/AutoDownload_(Enable|Disable).bat` で切り替えられます。  
 	ただし、無効にすると `Easy/*` の更新されたワークフローが正常に動作しなくなる場合があります。
 
 ## 最近の更新履歴

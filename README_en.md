@@ -11,15 +11,7 @@ Requires a Windows PC equipped with recent NVIDIA GPUs.
 With VRAM 12GB GeForce RTX 3060 12GB and RAM 64GB, generates HunyuanImage-2.1 standard size images (2304x1792, equivalent to 2 Full HD images) in about 70 seconds.  
 While not a recommended environment, with VRAM 6GB GeForce GTX 1660Ti and RAM 16GB, generates Full HD images in about 7 minutes.
 
-![](https://raw.githubusercontent.com/wiki/Zuntan03/EasyHu21/log/2509/GeforceGtx1660Ti.webp) for English is easy Hu Nyan One -->
-# <ruby>EasyHu21<rt>Easy Hu Nyan One</rt></ruby>
-
-This is experimental and under construction.
-
-[日本語 README](README.md)
-
-An environment for easily trying [HunyuanImage-2.1](https://github.com/Tencent-Hunyuan/HunyuanImage-2.1).  
-Requires a Windows PC equipped with recent NVIDIA GPUs.
+![](https://raw.githubusercontent.com/wiki/Zuntan03/EasyHu21/log/2509/GeforceGtx1660Ti.webp)
 
 ## Installation
 
@@ -33,6 +25,25 @@ Requires a Windows PC equipped with recent NVIDIA GPUs.
 	- **If prompted with `Windows protected your PC`, click `More info` then `Run anyway`.**
 	- **If prompted with `Do you want to allow this app to make changes to your device?` during `Microsoft Visual C++ 2015-2022 Redistributable` installation, click `Yes`.**
 	<!-- - **A [Civitai](https://civitai.com/) API key is required to download necessary files, so please enter it following the on-screen instructions and [online tutorials](https://www.google.com/search?q=civitai+api+key).** -->
+
+### Installation Troubleshooting
+
+While installation succeeds in some environments, it appears to fail in specific environments.  
+If errors are displayed in the black command line screen, could you please share those error messages?
+
+Observed symptoms and investigation status:
+
+1. Doesn't work unless llama-cpp-python is reinstalled.
+	- Seems like llama-cpp-python CUDA version installation is needed, similar to EasyReforce? Will try this.
+2. Command prompt doesn't launch when executing the installer bat file.
+	- There was a case where it worked when saving the file content directly in a text editor instead of right-clicking to save. Need to recheck character encoding and other factors.
+3. Prompted to install C++ build tools.
+	- [SageAttention v2.2.0-windows.post2](https://github.com/woct0rdho/SageAttention/releases/tag/v2.2.0-windows.post2) is suspicious.  
+	In EasyWan22, there were reports of environments that didn't work unless upgraded from post1 to post2.  
+	Possibly related to llama-cpp-python from issue 1?
+	- Should we temporarily downgrade to torch 2.7.1 like EasyWan22?
+
+We're working on solutions with available information, and will address issues as new information and solutions become available.
 
 ## Usage
 
@@ -76,6 +87,7 @@ Currently, documentation updates are not keeping up.
 ### 2025/09/15
 
 - Repository made public.
+- Added information about issues that may occur in specific environments to the Installation Troubleshooting section in README.
 
 ## License
 

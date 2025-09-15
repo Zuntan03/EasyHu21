@@ -26,6 +26,25 @@ VRAM 12GB の Geforce RTX 3060 12GB, RAM 64GB で、HunyuanImage-2.1 の標準�
 	- **`Microsoft Visual C++ 2015-2022 Redistributable` のインストールで `このアプリがデバイスに変更を加えることを許可しますか？` と表示されたら `はい` とします。**
 	<!-- - **必要なファイルのダウンロードに [Civitai](https://civitai.com/) API キーが必要ですので、画面の案内や [ネット上のノウハウ](https://www.google.com/search?q=civitai+api+key) に沿って入力してください。** -->
 
+### インストールのトラブル状況
+
+インストールに成功する環境がありつつも、特定の環境でインストールに失敗しているようです。  
+黒い画面のコマンドラインでエラーが表示されている場合は、そのエラーメッセージを共有いただけますでしょうか。
+
+見かけた症状と検討状況
+
+1. llama-cpp-python を再インストールしないと動かない。
+	- EasyReforceのように llama-cpp-python  CUDA 版の導入が必要そう？トライしてみる。
+2. インストール用の bat ファイルを実行しても、コマンドプロンプトが起動しない。
+	- 右クリックでの保存をやめて、ファイルの内容をテキストエディタで直接保存したら動作したとの事例あり。文字コードなどを要再確認。
+3. C++ build tool のインストールを求められる。
+	- [SageAttention の v2.2.0-windows.post2](https://github.com/woct0rdho/SageAttention/releases/tag/v2.2.0-windows.post2) が怪しい。  
+	EasyWan22 では post1 から post2 に上げないと動作しない環境の報告もあり。  
+	もしかしたら 1 の llama-cpp-python の可能性も？
+	- EasyWan22 と同様に torch 2.7.1 まで一旦引き下げる？
+
+手元の情報で模索しつつ、新しい情報や問題の対処方法が判明し次第、対処します。
+
 ## 使い方
 
 1. `ComfyUi.bat` で起動します。
@@ -68,6 +87,7 @@ README.md を英訳して README_en.md を更新します。更新履歴をよ�
 ### 2025/09/15
 
 - リポジトリを公開。
+- 特定の環境で発生していると思われる問題について、README の インストールのトラブル状況 に記載。
 
 ## ライセンス
 

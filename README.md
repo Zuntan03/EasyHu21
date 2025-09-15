@@ -34,13 +34,15 @@ VRAM 12GB の Geforce RTX 3060 12GB, RAM 64GB で、HunyuanImage-2.1 の標準�
 
 見かけた症状と検討状況
 
-1. llama-cpp-python を再インストールしないと動かない。
-	- EasyReforceのように llama-cpp-python  CUDA 版の導入が必要そう？トライしてみる。
-2. C++ build tool のインストールを求められる。
+
+1. C++ build tool のインストールを求められる。
 	- [SageAttention の v2.2.0-windows.post2](https://github.com/woct0rdho/SageAttention/releases/tag/v2.2.0-windows.post2) が怪しい。  
 	EasyWan22 では post1 から post2 に上げないと動作しない環境の報告もあり。  
 	もしかしたら 1 の llama-cpp-python の可能性も？
 	- EasyWan22 と同様に torch 2.7.1 まで一旦引き下げる？
+2. ~~llama-cpp-python を再インストールしないと動かない。~~
+	- ~~EasyReforceのように llama-cpp-python  CUDA 版の導入が必要そう？トライしてみる。~~
+	- CUDA 版 llama-cpp-python のインストールに対応しました。
 3. ~~インストール用の bat ファイルを実行しても、コマンドプロンプトが起動しない。~~
 	- ~~右クリックでの保存をやめて、ファイルの内容をテキストエディタで直接保存したら動作したとの事例あり。文字コードなどを要再確認。~~
 	- リンクを開いてからの右クリック保存で bat > txt 化が罠っぽいので、誤解が生じないようにインストール方法を更新しました。
@@ -91,6 +93,7 @@ README.md を英訳して README_en.md を更新します。更新履歴をよ�
 - リポジトリを公開。
 - 特定の環境で発生していると思われる問題について、README の インストールのトラブル状況 に記載。
 - インストール時の `bat` の保存方法について、トラブルになりそうな説明を修正しました。
+- CUDA 版 llama_cpp_python のインストールに対応しました。
 
 ## ライセンス
 

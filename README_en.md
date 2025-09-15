@@ -34,13 +34,14 @@ If errors are displayed in the black command line screen, could you please share
 
 Observed symptoms and investigation status:
 
-1. Doesn't work unless llama-cpp-python is reinstalled.
-	- Seems like llama-cpp-python CUDA version installation is needed, similar to EasyReforce? Will try this.
-2. Prompted to install C++ build tools.
+1. Prompted to install C++ build tools.
 	- [SageAttention v2.2.0-windows.post2](https://github.com/woct0rdho/SageAttention/releases/tag/v2.2.0-windows.post2) is suspicious.  
 	In EasyWan22, there were reports of environments that didn't work unless upgraded from post1 to post2.  
-	Possibly related to llama-cpp-python from issue 1?
+	Possibly related to llama-cpp-python from issue 2?
 	- Should we temporarily downgrade to torch 2.7.1 like EasyWan22?
+2. ~~Doesn't work unless llama-cpp-python is reinstalled.~~
+	- ~~Seems like llama-cpp-python CUDA version installation is needed, similar to EasyReforce? Will try this.~~
+	- CUDA version llama-cpp-python installation is now supported.
 3. ~~Command prompt doesn't launch when executing the installer bat file.~~
 	- ~~There was a case where it worked when saving the file content directly in a text editor instead of right-clicking to save. Need to recheck character encoding and other factors.~~
 	- The issue of bat files becoming txt files when saving after opening the link seems to be the trap, so we've updated the installation instructions to avoid confusion.
@@ -91,6 +92,7 @@ Currently, documentation updates are not keeping up.
 - Repository made public.
 - Added information about issues that may occur in specific environments to the Installation Troubleshooting section in README.
 - Fixed installation instructions for saving `bat` files to prevent potential confusion.
+- Added support for CUDA version llama-cpp-python installation.
 
 ## License
 

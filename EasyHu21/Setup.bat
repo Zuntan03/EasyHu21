@@ -59,6 +59,30 @@ echo pip install -qq PyYAML==6.0.2
 pip install -qq PyYAML==6.0.2
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
+if "%EASY_PYTHON_VERSION_3%"=="310" (
+	goto :EASY_PYTHON_310_MODULES
+) else if "%EASY_PYTHON_VERSION_3%"=="312" (
+	goto :EASY_PYTHON_312_MODULES
+) else (
+	echo ERROR: Invalid Python version. EASY_PYTHON_VERSION_3: %EASY_PYTHON_VERSION_3%
+	pause
+	goto :EASY_PYTHON_MODULES_END
+)
+:EASY_PYTHON_310_MODULES
+
+echo pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp310-cp310-win_amd64.whl
+pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp310-cp310-win_amd64.whl
+if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
+
+goto :EASY_PYTHON_MODULES_END
+:EASY_PYTHON_312_MODULES
+
+echo pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp312-cp312-win_amd64.whl
+pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp312-cp312-win_amd64.whl
+if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
+
+:EASY_PYTHON_MODULES_END
+
 popd rem "%~dp0.."
 pushd "%~dp0..\ComfyUI\custom_nodes"
 
@@ -91,7 +115,8 @@ if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
 @REM https://github.com/city96/ComfyUI-GGUF/commits/main/
 @REM 09/08 6b778afdc938427116cb72e683d28e42baf67082
-call :GITHUB_HASH_REQUIREMENTS city96 ComfyUI-GGUF main 6b778afdc938427116cb72e683d28e42baf67082
+@REM 09/15 be2a08330d7ec232d684e50ab938870d7529471e
+call :GITHUB_HASH_REQUIREMENTS city96 ComfyUI-GGUF main be2a08330d7ec232d684e50ab938870d7529471e
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
 @REM https://github.com/ltdrdata/ComfyUI-Impact-Pack/tags
@@ -116,7 +141,9 @@ if not exist ComfyUI-KJNodes\fonts\f910-shin-comic-2.04.otf (
 )
 
 @REM https://github.com/pollockjj/ComfyUI-MultiGPU/commits/main/
-call :GITHUB_HASH_REQUIREMENTS pollockjj ComfyUI-MultiGPU main d34a32f0973d243b152c271d9dff57ce7ff87ec1
+@REM 09/13 d34a32f0973d243b152c271d9dff57ce7ff87ec1
+@REM 09/15 80f8a14dea5f77ac9546576c96da79d730773c65
+call :GITHUB_HASH_REQUIREMENTS pollockjj ComfyUI-MultiGPU main 80f8a14dea5f77ac9546576c96da79d730773c65
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
 @REM https://github.com/Smirnov75/ComfyUI-mxToolkit/commits/main/

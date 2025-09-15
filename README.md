@@ -15,7 +15,8 @@ VRAM 12GB の Geforce RTX 3060 12GB, RAM 64GB で、HunyuanImage-2.1 の標準�
 
 ## インストール
 
-1. [EasyHu21Installer.bat](https://github.com/Zuntan03/EasyHu21/raw/main/EasyHu21/EasyHu21Installer.bat?ver=0) を右クリックから保存します。
+1. [EasyHu21Installer.bat](https://github.com/Zuntan03/EasyHu21/raw/main/EasyHu21/EasyHu21Installer.bat?ver=0) をリンクを開かずに、リンク自体を右クリックして `名前をつけてリンク先を保存` します。
+	- リンクを開いてから右クリックから保存すると、`bat` ファイルでなく `txt` ファイルになり実行できなくなります。
 	- デフォルトでは [ComfyUI 公式が推奨している Python 3.12](https://github.com/comfyanonymous/ComfyUI#manual-install-windows-linux) を使用します。  
 	[EasyHu21Installer-Python3_10.bat](https://github.com/Zuntan03/EasyHu21/raw/main/EasyHu21/EasyHu21Installer-Python3_10.bat?ver=0) でインストールすると Python 3.10 系を利用できます。
 		- Python 3.10 でないと動作しない環境があるようです。  
@@ -35,13 +36,14 @@ VRAM 12GB の Geforce RTX 3060 12GB, RAM 64GB で、HunyuanImage-2.1 の標準�
 
 1. llama-cpp-python を再インストールしないと動かない。
 	- EasyReforceのように llama-cpp-python  CUDA 版の導入が必要そう？トライしてみる。
-2. インストール用の bat ファイルを実行しても、コマンドプロンプトが起動しない。
-	- 右クリックでの保存をやめて、ファイルの内容をテキストエディタで直接保存したら動作したとの事例あり。文字コードなどを要再確認。
-3. C++ build tool のインストールを求められる。
+2. C++ build tool のインストールを求められる。
 	- [SageAttention の v2.2.0-windows.post2](https://github.com/woct0rdho/SageAttention/releases/tag/v2.2.0-windows.post2) が怪しい。  
 	EasyWan22 では post1 から post2 に上げないと動作しない環境の報告もあり。  
 	もしかしたら 1 の llama-cpp-python の可能性も？
 	- EasyWan22 と同様に torch 2.7.1 まで一旦引き下げる？
+3. ~~インストール用の bat ファイルを実行しても、コマンドプロンプトが起動しない。~~
+	- ~~右クリックでの保存をやめて、ファイルの内容をテキストエディタで直接保存したら動作したとの事例あり。文字コードなどを要再確認。~~
+	- リンクを開いてからの右クリック保存で bat > txt 化が罠っぽいので、誤解が生じないようにインストール方法を更新しました。
 
 手元の情報で模索しつつ、新しい情報や問題の対処方法が判明し次第、対処します。
 
@@ -88,6 +90,7 @@ README.md を英訳して README_en.md を更新します。更新履歴をよ�
 
 - リポジトリを公開。
 - 特定の環境で発生していると思われる問題について、README の インストールのトラブル状況 に記載。
+- インストール時の `bat` の保存方法について、トラブルになりそうな説明を修正しました。
 
 ## ライセンス
 

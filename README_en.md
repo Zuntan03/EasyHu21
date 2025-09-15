@@ -15,7 +15,8 @@ While not a recommended environment, with VRAM 6GB GeForce GTX 1660Ti and RAM 16
 
 ## Installation
 
-1. Right-click and save [EasyHu21Installer.bat](https://github.com/Zuntan03/EasyHu21/raw/main/EasyHu21/EasyHu21Installer.bat?ver=0).
+1. Right-click on the link [EasyHu21Installer.bat](https://github.com/Zuntan03/EasyHu21/raw/main/EasyHu21/EasyHu21Installer.bat?ver=0) itself without opening it, and select `Save link as`.
+	- If you open the link first and then right-click to save, it will become a `txt` file instead of a `bat` file and won't be executable.
 	- By default, this uses [Python 3.12 as recommended by the official ComfyUI](https://github.com/comfyanonymous/ComfyUI#manual-install-windows-linux).  
 	If you install with [EasyHu21Installer-Python3_10.bat](https://github.com/Zuntan03/EasyHu21/raw/main/EasyHu21/EasyHu21Installer-Python3_10.bat?ver=0), you can use Python 3.10 series.
 		- Some environments may only work with Python 3.10.  
@@ -35,13 +36,14 @@ Observed symptoms and investigation status:
 
 1. Doesn't work unless llama-cpp-python is reinstalled.
 	- Seems like llama-cpp-python CUDA version installation is needed, similar to EasyReforce? Will try this.
-2. Command prompt doesn't launch when executing the installer bat file.
-	- There was a case where it worked when saving the file content directly in a text editor instead of right-clicking to save. Need to recheck character encoding and other factors.
-3. Prompted to install C++ build tools.
+2. Prompted to install C++ build tools.
 	- [SageAttention v2.2.0-windows.post2](https://github.com/woct0rdho/SageAttention/releases/tag/v2.2.0-windows.post2) is suspicious.  
 	In EasyWan22, there were reports of environments that didn't work unless upgraded from post1 to post2.  
 	Possibly related to llama-cpp-python from issue 1?
 	- Should we temporarily downgrade to torch 2.7.1 like EasyWan22?
+3. ~~Command prompt doesn't launch when executing the installer bat file.~~
+	- ~~There was a case where it worked when saving the file content directly in a text editor instead of right-clicking to save. Need to recheck character encoding and other factors.~~
+	- The issue of bat files becoming txt files when saving after opening the link seems to be the trap, so we've updated the installation instructions to avoid confusion.
 
 We're working on solutions with available information, and will address issues as new information and solutions become available.
 
@@ -88,6 +90,7 @@ Currently, documentation updates are not keeping up.
 
 - Repository made public.
 - Added information about issues that may occur in specific environments to the Installation Troubleshooting section in README.
+- Fixed installation instructions for saving `bat` files to prevent potential confusion.
 
 ## License
 

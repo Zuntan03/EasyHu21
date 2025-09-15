@@ -32,13 +32,14 @@ While not a recommended environment, with VRAM 6GB GeForce GTX 1660Ti and RAM 16
 While installation succeeds in some environments, it appears to fail in specific environments.  
 If errors are displayed in the black command line screen, could you please share those error messages?
 
-Observed symptoms and investigation status:
+Observed symptoms and investigation/resolution status:
 
-1. Prompted to install C++ build tools.
-	- [SageAttention v2.2.0-windows.post2](https://github.com/woct0rdho/SageAttention/releases/tag/v2.2.0-windows.post2) is suspicious.  
-	In EasyWan22, there were reports of environments that didn't work unless upgraded from post1 to post2.  
-	Possibly related to llama-cpp-python from issue 2?
-	- Should we temporarily downgrade to torch 2.7.1 like EasyWan22?
+1. ~~Prompted to install C++ build tools.~~
+	- ~~Information suggests this occurs during installation of [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) [requirements.txt](https://github.com/cubiq/ComfyUI_essentials/blob/main/requirements.txt). Mysterious.~~
+		- Modified to explicitly install packages required by [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) [requirements.txt](https://github.com/cubiq/ComfyUI_essentials/blob/main/requirements.txt) in advance using versions that work on our local environment.
+	- ~~[SageAttention v2.2.0-windows.post2](https://github.com/woct0rdho/SageAttention/releases/tag/v2.2.0-windows.post2) is suspicious.~~  
+	~~In EasyWan22, there were reports of environments that didn't work unless upgraded from post1 to post2.~~  
+	- ~~Should we temporarily downgrade to torch 2.7.1 like EasyWan22?~~
 2. ~~Doesn't work unless llama-cpp-python is reinstalled.~~
 	- ~~Seems like llama-cpp-python CUDA version installation is needed, similar to EasyReforce? Will try this.~~
 	- CUDA version llama-cpp-python installation is now supported.
@@ -93,6 +94,7 @@ Currently, documentation updates are not keeping up.
 - Added information about issues that may occur in specific environments to the Installation Troubleshooting section in README.
 - Fixed installation instructions for saving `bat` files to prevent potential confusion.
 - Added support for CUDA version llama-cpp-python installation.
+- Modified to explicitly install packages required by [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) [requirements.txt](https://github.com/cubiq/ComfyUI_essentials/blob/main/requirements.txt) in advance using working versions, as some environments experience errors during installation.
 
 ## License
 

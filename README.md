@@ -32,14 +32,14 @@ VRAM 12GB の Geforce RTX 3060 12GB, RAM 64GB で、HunyuanImage-2.1 の標準�
 インストールに成功する環境がありつつも、特定の環境でインストールに失敗しているようです。  
 黒い画面のコマンドラインでエラーが表示されている場合は、そのエラーメッセージを共有いただけますでしょうか。
 
-見かけた症状と検討状況
+見かけた症状と検討・対処状況
 
-
-1. C++ build tool のインストールを求められる。
-	- [SageAttention の v2.2.0-windows.post2](https://github.com/woct0rdho/SageAttention/releases/tag/v2.2.0-windows.post2) が怪しい。  
-	EasyWan22 では post1 から post2 に上げないと動作しない環境の報告もあり。  
-	もしかしたら 1 の llama-cpp-python の可能性も？
-	- EasyWan22 と同様に torch 2.7.1 まで一旦引き下げる？
+1. ~~C++ build tool のインストールを求められる。~~
+	- ~~[ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) の [requirements.txt](https://github.com/cubiq/ComfyUI_essentials/blob/main/requirements.txt) のインストールで発生しているとの情報あり。謎。~~
+		- [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) の [requirements.txt](https://github.com/cubiq/ComfyUI_essentials/blob/main/requirements.txt) が求めるパッケージを、手元で動作しているバージョンを先行して明示的にインストールするようにしました。
+	- ~~[SageAttention の v2.2.0-windows.post2](https://github.com/woct0rdho/SageAttention/releases/tag/v2.2.0-windows.post2) が怪しい。~~  
+	~~EasyWan22 では post1 から post2 に上げないと動作しない環境の報告もあり。~~  
+	- ~~EasyWan22 と同様に torch 2.7.1 まで一旦引き下げる？~~
 2. ~~llama-cpp-python を再インストールしないと動かない。~~
 	- ~~EasyReforceのように llama-cpp-python  CUDA 版の導入が必要そう？トライしてみる。~~
 	- CUDA 版 llama-cpp-python のインストールに対応しました。
@@ -94,6 +94,7 @@ README.md を英訳して README_en.md を更新します。更新履歴をよ�
 - 特定の環境で発生していると思われる問題について、README の インストールのトラブル状況 に記載。
 - インストール時の `bat` の保存方法について、トラブルになりそうな説明を修正しました。
 - CUDA 版 llama_cpp_python のインストールに対応しました。
+- [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) の [requirements.txt](https://github.com/cubiq/ComfyUI_essentials/blob/main/requirements.txt) インストールででエラーが発生する環境があるため、手元で動作しているバージョンを先行して明示的にインストールするようにしました。
 
 ## ライセンス
 

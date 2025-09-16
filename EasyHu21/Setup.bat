@@ -60,9 +60,13 @@ pip install -qq PyYAML==6.0.2
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
 @REM https://files.catbox.moe/pqzrbx.png
+@REM https://x.com/BoB_Arietta/status/1967855058374234254?t=r5GFk6pZEMBOws2atbkRrg
+@REM https://x.com/KatonboOpk/status/1967877560488050924?t=deyPu3b1SH8cfO6ZXG4ioA
 @REM https://github.com/cubiq/ComfyUI_essentials/blob/main/requirements.txt
-echo pip install -qq numba==0.61.2 colour-science==0.4.6 rembg==2.0.67 pixeloe==0.1.4 transparent-background==1.3.4
-pip install -qq numba==0.61.2 colour-science==0.4.6 rembg==2.0.67 pixeloe==0.1.4 transparent-background==1.3.4
+echo pip install -qq --only-binary=stringzilla stringzilla==4.0.7
+pip install -qq --only-binary=stringzilla stringzilla==4.0.7
+echo pip install -qq --only-binary=:all: numba==0.61.2 colour-science==0.4.6 rembg==2.0.67 pixeloe==0.1.4 transparent-background==1.3.4
+pip install -qq --only-binary=:all: numba==0.61.2 colour-science==0.4.6 rembg==2.0.67 pixeloe==0.1.4 transparent-background==1.3.4
 
 if "%EASY_PYTHON_VERSION_3%"=="310" (
 	goto :EASY_PYTHON_310_MODULES

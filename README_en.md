@@ -88,6 +88,10 @@ README.md を英訳して README_en.md を更新します。更新履歴をよ�
 
 Currently, documentation updates are not keeping up.
 
+### 2025/09/17
+
+- Added additional measures to address issues where [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) installation causes errors in specific environments.
+
 ### 2025/09/15
 
 - Repository made public.

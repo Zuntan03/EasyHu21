@@ -88,13 +88,17 @@ README.md を英訳して README_en.md を更新します。更新履歴をよ�
 
 現在、ドキュメントの更新が追いついていません。
 
+### 2025/09/17
+
+- [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) のインストールで、特定の環境でエラーが発生する問題への追加の対処を入れてみました。
+
 ### 2025/09/15
 
 - リポジトリを公開。
 - 特定の環境で発生していると思われる問題について、README の インストールのトラブル状況 に記載。
 - インストール時の `bat` の保存方法について、トラブルになりそうな説明を修正しました。
 - CUDA 版 llama_cpp_python のインストールに対応しました。
-- [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) の [requirements.txt](https://github.com/cubiq/ComfyUI_essentials/blob/main/requirements.txt) インストールででエラーが発生する環境があるため、手元で動作しているバージョンを先行して明示的にインストールするようにしました。
+- [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) の [requirements.txt](https://github.com/cubiq/ComfyUI_essentials/blob/main/requirements.txt) インストールでエラーが発生する環境があるため、手元で動作しているバージョンを先行して明示的にインストールするようにしました。
 
 ## ライセンス
 

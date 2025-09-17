@@ -65,8 +65,9 @@ if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 @REM https://github.com/cubiq/ComfyUI_essentials/blob/main/requirements.txt
 echo pip install -qq --only-binary=stringzilla stringzilla==4.0.7
 pip install -qq --only-binary=stringzilla stringzilla==4.0.7
-echo pip install -qq --only-binary=:all: numba==0.61.2 colour-science==0.4.6 rembg==2.0.67 pixeloe==0.1.4 transparent-background==1.3.4
-pip install -qq --only-binary=:all: numba==0.61.2 colour-science==0.4.6 rembg==2.0.67 pixeloe==0.1.4 transparent-background==1.3.4
+
+echo pip install -qq numba==0.61.2 colour-science==0.4.6 rembg==2.0.67 pixeloe==0.1.4 transparent-background==1.3.4
+pip install -qq numba==0.61.2 colour-science==0.4.6 rembg==2.0.67 pixeloe==0.1.4 transparent-background==1.3.4
 
 if "%EASY_PYTHON_VERSION_3%"=="310" (
 	goto :EASY_PYTHON_310_MODULES
@@ -79,24 +80,24 @@ if "%EASY_PYTHON_VERSION_3%"=="310" (
 )
 :EASY_PYTHON_310_MODULES
 
-@REM echo pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp310-cp310-win_amd64.whl
-@REM pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp310-cp310-win_amd64.whl
-@REM if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
-
-echo pip install https://huggingface.co/marcorez8/llama-cpp-python-windows-blackwell-cuda/resolve/main/llama_cpp_python-0.3.9-cp310-cp310-win_amd64.whl
-pip install https://huggingface.co/marcorez8/llama-cpp-python-windows-blackwell-cuda/resolve/main/llama_cpp_python-0.3.9-cp310-cp310-win_amd64.whl
+echo pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp310-cp310-win_amd64.whl
+pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp310-cp310-win_amd64.whl
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
+
+@REM echo pip install https://huggingface.co/marcorez8/llama-cpp-python-windows-blackwell-cuda/resolve/main/llama_cpp_python-0.3.9-cp310-cp310-win_amd64.whl
+@REM pip install https://huggingface.co/marcorez8/llama-cpp-python-windows-blackwell-cuda/resolve/main/llama_cpp_python-0.3.9-cp310-cp310-win_amd64.whl
+@REM if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
 goto :EASY_PYTHON_MODULES_END
 :EASY_PYTHON_312_MODULES
 
-@REM echo pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp312-cp312-win_amd64.whl
-@REM pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp312-cp312-win_amd64.whl
-@REM if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
-
-echo pip install https://github.com/boneylizard/llama-cpp-python-cu128-gemma3/releases/download/rtx5090-blackwell-gpt-oss/llama_cpp_python-0.3.16-cp312-cp312-win_amd64.whl
-pip install https://github.com/boneylizard/llama-cpp-python-cu128-gemma3/releases/download/rtx5090-blackwell-gpt-oss/llama_cpp_python-0.3.16-cp312-cp312-win_amd64.whl
+echo pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp312-cp312-win_amd64.whl
+pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp312-cp312-win_amd64.whl
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
+
+@REM echo pip install https://github.com/boneylizard/llama-cpp-python-cu128-gemma3/releases/download/rtx5090-blackwell-gpt-oss/llama_cpp_python-0.3.16-cp312-cp312-win_amd64.whl
+@REM pip install https://github.com/boneylizard/llama-cpp-python-cu128-gemma3/releases/download/rtx5090-blackwell-gpt-oss/llama_cpp_python-0.3.16-cp312-cp312-win_amd64.whl
+@REM if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
 :EASY_PYTHON_MODULES_END
 

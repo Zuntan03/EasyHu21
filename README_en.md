@@ -94,7 +94,8 @@ Currently, documentation updates are not keeping up.
 
 - Added additional measures to address issues where [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) installation causes errors in specific environments.
 - Changed installer to support only Python 3.10 series, as Python 3.12 series requires compilers in specific environments.
-- Changed llama_cpp_python to GeForce RTX 50x0 compatible version.
+- ~~Changed llama_cpp_python to GeForce RTX 50x0 compatible version.~~
+	- Rolled back because it stopped working in environments that were previously working.
 
 ### 2025/09/15
 

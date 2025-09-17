@@ -94,7 +94,8 @@ README.md を英訳して README_en.md を更新します。更新履歴をよ�
 
 - [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) のインストールで、特定の環境でエラーが発生する問題への追加の対処を入れてみました。
 - Python 3.12 系では特定の環境でコンパイラを要求されてるため、インストーラを Python 3.10 系対応のみにしました。
-- llama_cpp_python を Geforce RTX 50x0 対応版に変更しました。
+- ~~llama_cpp_python を Geforce RTX 50x0 対応版に変更しました。~~
+	- 動作していた一応環境で動作しなくなったので、巻き戻し。
 
 ### 2025/09/15
 

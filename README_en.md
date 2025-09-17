@@ -17,10 +17,12 @@ While not a recommended environment, with VRAM 6GB GeForce GTX 1660Ti and RAM 16
 
 1. Right-click on the link [EasyHu21Installer.bat](https://github.com/Zuntan03/EasyHu21/raw/main/EasyHu21/EasyHu21Installer.bat?ver=0) itself without opening it, and select `Save link as`.
 	- If you open the link first and then right-click to save, it will become a `txt` file instead of a `bat` file and won't be executable.
+<!--
 	- By default, this uses [Python 3.12 as recommended by the official ComfyUI](https://github.com/comfyanonymous/ComfyUI#manual-install-windows-linux).  
 	If you install with [EasyHu21Installer-Python3_10.bat](https://github.com/Zuntan03/EasyHu21/raw/main/EasyHu21/EasyHu21Installer-Python3_10.bat?ver=0), you can use Python 3.10 series.
 		- Some environments may only work with Python 3.10.  
 		If installation or startup fails, try installing with Python 3.10 series.
+-->
 2. Prepare an **empty folder** at a shallow path like `C:/EasyHu21/` or `D:/EasyHu21/` as the installation destination, place `EasyHu21Installer.bat` there, and execute it.
 	- **If prompted with `Publisher could not be verified. Do you want to run this software?`, click `Run`.**
 	- **If prompted with `Windows protected your PC`, click `More info` then `Run anyway`.**
@@ -91,6 +93,7 @@ Currently, documentation updates are not keeping up.
 ### 2025/09/17
 
 - Added additional measures to address issues where [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) installation causes errors in specific environments.
+- Changed installer to support only Python 3.10 series, as Python 3.12 series requires compilers in specific environments.
 
 ### 2025/09/15
 

@@ -17,11 +17,13 @@ VRAM 12GB の Geforce RTX 3060 12GB, RAM 64GB で、HunyuanImage-2.1 の標準�
 
 1. [EasyHu21Installer.bat](https://github.com/Zuntan03/EasyHu21/raw/main/EasyHu21/EasyHu21Installer.bat?ver=0) をリンクを開かずに、リンク自体を右クリックして `名前をつけてリンク先を保存` します。
 	- リンクを開いてから右クリックから保存すると、`bat` ファイルでなく `txt` ファイルになり実行できなくなります。
+<!--
 	- デフォルトでは [ComfyUI 公式が推奨している Python 3.12](https://github.com/comfyanonymous/ComfyUI#manual-install-windows-linux) を使用します。  
 	[EasyHu21Installer-Python3_10.bat](https://github.com/Zuntan03/EasyHu21/raw/main/EasyHu21/EasyHu21Installer-Python3_10.bat?ver=0) でインストールすると Python 3.10 系を利用できます。
 		- Python 3.10 でないと動作しない環境があるようです。  
 		インストールや起動に失敗する場合は、Python 3.10 系でのインストールを試してみてください。
-2. インストール先の **空フォルダ** を `C:/EasyHu21/` や `D:/EasyHu21/` などの浅いパスに用意して、`EasyHu21Installer.bat` を置いて実行します。
+-->
+1. インストール先の **空フォルダ** を `C:/EasyHu21/` や `D:/EasyHu21/` などの浅いパスに用意して、`EasyHu21Installer.bat` を置いて実行します。
 	- **`発行元を確認できませんでした。このソフトウェアを実行しますか？` と表示されたら `実行` します。**
 	- **`WindowsによってPCが保護されました` と表示されたら、`詳細表示` から `実行` します。**
 	- **`Microsoft Visual C++ 2015-2022 Redistributable` のインストールで `このアプリがデバイスに変更を加えることを許可しますか？` と表示されたら `はい` とします。**
@@ -91,6 +93,7 @@ README.md を英訳して README_en.md を更新します。更新履歴をよ�
 ### 2025/09/17
 
 - [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) のインストールで、特定の環境でエラーが発生する問題への追加の対処を入れてみました。
+- Python 3.12 系では特定の環境でコンパイラを要求されてるため、インストーラを Python 3.10 系対応のみにしました。
 
 ### 2025/09/15
 

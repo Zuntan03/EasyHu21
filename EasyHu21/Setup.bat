@@ -79,27 +79,37 @@ if "%EASY_PYTHON_VERSION_3%"=="310" (
 	goto :EASY_PYTHON_MODULES_END
 )
 :EASY_PYTHON_310_MODULES
+if exist "%~dp0LlamaCppPython_GeforcrRTX50x0.txt" ( goto :LLAMA_CPP_PYTHON_50x0_310 )
 
 echo pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp310-cp310-win_amd64.whl
 pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp310-cp310-win_amd64.whl
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
-
-@REM echo pip install https://huggingface.co/marcorez8/llama-cpp-python-windows-blackwell-cuda/resolve/main/llama_cpp_python-0.3.9-cp310-cp310-win_amd64.whl
-@REM pip install https://huggingface.co/marcorez8/llama-cpp-python-windows-blackwell-cuda/resolve/main/llama_cpp_python-0.3.9-cp310-cp310-win_amd64.whl
-@REM if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
-
 goto :EASY_PYTHON_MODULES_END
+
+:LLAMA_CPP_PYTHON_50x0_310
+echo pip install https://huggingface.co/marcorez8/llama-cpp-python-windows-blackwell-cuda/resolve/main/llama_cpp_python-0.3.9-cp310-cp310-win_amd64.whl
+pip install https://huggingface.co/marcorez8/llama-cpp-python-windows-blackwell-cuda/resolve/main/llama_cpp_python-0.3.9-cp310-cp310-win_amd64.whl
+if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
+goto :EASY_PYTHON_MODULES_END
+
 :EASY_PYTHON_312_MODULES
+if exist "%~dp0LlamaCppPython_GeforcrRTX50x0.txt" ( goto :LLAMA_CPP_PYTHON_50x0_312 )
 
 echo pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp312-cp312-win_amd64.whl
 pip install -qq https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/llama_cpp_python-0.3.4-cp312-cp312-win_amd64.whl
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
+goto :EASY_PYTHON_MODULES_END
 
-@REM echo pip install https://github.com/boneylizard/llama-cpp-python-cu128-gemma3/releases/download/rtx5090-blackwell-gpt-oss/llama_cpp_python-0.3.16-cp312-cp312-win_amd64.whl
-@REM pip install https://github.com/boneylizard/llama-cpp-python-cu128-gemma3/releases/download/rtx5090-blackwell-gpt-oss/llama_cpp_python-0.3.16-cp312-cp312-win_amd64.whl
-@REM if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
+:LLAMA_CPP_PYTHON_50x0_312
+echo pip install https://github.com/boneylizard/llama-cpp-python-cu128-gemma3/releases/download/rtx5090-blackwell-gpt-oss/llama_cpp_python-0.3.16-cp312-cp312-win_amd64.whl
+pip install https://github.com/boneylizard/llama-cpp-python-cu128-gemma3/releases/download/rtx5090-blackwell-gpt-oss/llama_cpp_python-0.3.16-cp312-cp312-win_amd64.whl
+if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
 :EASY_PYTHON_MODULES_END
+
+echo pip install -qq huggingface_hub[hf_xet]
+pip install -qq huggingface_hub[hf_xet]
+if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
 popd rem "%~dp0.."
 pushd "%~dp0..\ComfyUI\custom_nodes"

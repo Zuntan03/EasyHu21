@@ -90,6 +90,13 @@ README.md を英訳して README_en.md を更新します。更新履歴をよ�
 
 Currently, documentation updates are not keeping up.
 
+### 2025/09/18
+
+- Changed to install `huggingface_hub[hf_xet]`.
+- Added `EasyHu21\LlamaCppPython_GeforcrRTX50x0-Enable.bat` to install `llama-cpp-python` for GeForce RTX 50x0.
+	- Try this if you encounter CUDA Error with llama-cpp-python.
+	- May not work with older video cards, but you can revert with `EasyHu21\LlamaCppPython_GeforcrRTX50x0-Disable.bat`.
+
 ### 2025/09/17
 
 - Added additional measures to address issues where [ComfyUI_essentials](https://github.com/cubiq/ComfyUI_essentials) installation causes errors in specific environments.

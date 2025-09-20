@@ -3,6 +3,12 @@
 
 This is an experimental environment.
 
+My experimental results
+
+- It seems practical to use with GeForce RTX 3060 12GB, including LoRA training.
+- We'll likely be waiting for the emergence of dominant models (NSFW-compatible OrangeMix, Animagine, Pony, Noob, Illustrious, etc.).
+	- Whether it's Qwen-Image, HunyuanImage, or something else, it's exciting to see what comes next.
+
 [日本語 README](README.md)
 
 An environment for easily trying [HunyuanImage-2.1](https://github.com/Tencent-Hunyuan/HunyuanImage-2.1).  
@@ -16,18 +22,33 @@ While not a recommended environment, with VRAM 6GB GeForce GTX 1660Ti and RAM 16
 ## Installation
 
 1. Right-click on the link [EasyHu21Installer.bat](https://github.com/Zuntan03/EasyHu21/raw/main/EasyHu21/EasyHu21Installer.bat?ver=0) itself without opening it, and select `Save link as`.
-	- If you open the link first and then right-click to save, it will become a `txt` file instead of a `bat` file and won't be executable.
-<!--
-	- By default, this uses [Python 3.12 as recommended by the official ComfyUI](https://github.com/comfyanonymous/ComfyUI#manual-install-windows-linux).  
-	If you install with [EasyHu21Installer-Python3_10.bat](https://github.com/Zuntan03/EasyHu21/raw/main/EasyHu21/EasyHu21Installer-Python3_10.bat?ver=0), you can use Python 3.10 series.
-		- Some environments may only work with Python 3.10.  
-		If installation or startup fails, try installing with Python 3.10 series.
--->
+	- If you open the link first and then right-click to save, it will become a `*.txt` file instead of a `*.bat` file and won't be executable.
 2. Prepare an **empty folder** at a shallow path like `C:/EasyHu21/` or `D:/EasyHu21/` as the installation destination, place `EasyHu21Installer.bat` there, and execute it.
 	- **If prompted with `Publisher could not be verified. Do you want to run this software?`, click `Run`.**
 	- **If prompted with `Windows protected your PC`, click `More info` then `Run anyway`.**
-	- **If prompted with `Do you want to allow this app to make changes to your device?` during `Microsoft Visual C++ 2015-2022 Redistributable` installation, click `Yes`.**
-	<!-- - **A [Civitai](https://civitai.com/) API key is required to download necessary files, so please enter it following the on-screen instructions and [online tutorials](https://www.google.com/search?q=civitai+api+key).** -->
+	- 	- **If prompted with `Do you want to allow this app to make changes to your device?` during `Microsoft Visual C++ 2015-2022 Redistributable` installation, click `Yes`.**
+
+## Usage
+
+1. Launch with `ComfyUi.bat`.
+	- **[ Warning ][ ComfyUI Trap ][ Many Victims ]  
+	On first startup, old workflows from browser cache may open and cause errors.  
+	Please ignore the errors and close the workflows.**
+	- For GPUs prior to GeForce RTX 20x0, launch with `ComfyUi_OldGpu.bat`.
+2. **After launching `ComfyUI.bat`, open the `Hu21/00-TextToImage` workflow and click `Queue Prompt` to generate images.**  
+Then click `Queue Prompt` as-is to generate videos.
+	- **If VRAM is less than 12GB, please adjust the red `VirtualVram` setting in the upper left.**
+		- For 8GB VRAM use `7`, for 6GB use `9`.
+		- For 16GB or more VRAM, set to `0`.
+		- Set the lowest value that doesn't cause VRAM shortage.  
+		Setting unnecessarily high values seems to reduce GPU utilization.
+	- If `CUDA Error` occurs with GeForce RTX 50x0, close the console to terminate ComfyUI, run `EasyHu21\LlamaCppPython_GeforcrRTX50x0-Enable.bat`, then restart `ComfyUI.bat`.
+	- If VAE encoding/decoding causes VRAM shortage, please reduce the image generation size.  
+		- GeForce GTX 1660Ti with 6GB VRAM was able to decode Full HD (1920x1088).
+		- Switching to `TiledVae` is supported, but may leave stripe patterns in the image.
+			- If `TiledVae` works properly, standard size 2048x2048 can be generated with 6GB VRAM.
+	- Initial generation takes time for initialization.  
+	To check generation time, try generating a second image.
 
 ### Installation Troubleshooting
 
@@ -88,7 +109,12 @@ Update with `Update.bat`.
 README.md を英訳して README_en.md を更新します。更新履歴をよく更新します。EasyHu21/wiki/ へのリンクは変更禁止。「ドキュメント」内は変更禁止。
 -->
 
-Currently, documentation updates are not keeping up.
+### 2025/09/20
+
+- Changed PyTorch version to one with proven stable operation.
+	- `torch==2.7.1+cu2.8.0`
+- Removed SageAttention from command line options.
+	- Enable it via nodes, or copy `ComfyUi.bat` with a different name and add `--use-sage-attention` to the arguments.
 
 ### 2025/09/18
 

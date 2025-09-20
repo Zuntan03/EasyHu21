@@ -24,18 +24,18 @@ copy NUL "%EASY_COMFYUI%\ComfyUiManager_Version.txt" > NUL
 
 if exist "%~dp0Pytorch-VersionUnlock.txt" ( goto :SKIP_PYTORCH_VERSION_LOCK )
 
-echo xformers> "%EASY_COMFYUI%\UninstallModule.txt"
-
 @REM https://pytorch.org/get-started/locally/
-echo torch==2.8.0+cu129 torchvision==0.23.0+cu129 torchaudio==2.8.0+cu129 --index-url https://download.pytorch.org/whl/cu129> "%EASY_COMFYUI%\Torch_Version.txt"
-
+@REM echo torch==2.8.0+cu129 torchvision==0.23.0+cu129 torchaudio==2.8.0+cu129 --index-url https://download.pytorch.org/whl/cu129> "%EASY_COMFYUI%\Torch_Version.txt"
+echo torch==2.7.1+cu128 torchvision==0.22.1+cu128 torchaudio==2.7.1+cu128 --index-url https://download.pytorch.org/whl/cu128> "%EASY_COMFYUI%\Torch_Version.txt"
 
 @REM https://github.com/woct0rdho/triton-windows/releases v3.4.x PyTorch >= 2.8
-echo triton-windows==3.4.0.post20> "%EASY_COMFYUI%\Triton_Version.txt"
+@REM echo triton-windows==3.4.0.post20> "%EASY_COMFYUI%\Triton_Version.txt"
+echo triton-windows==3.3.1.post19> "%EASY_COMFYUI%\Triton_Version.txt"
 
 @REM https://github.com/woct0rdho/SageAttention/releases
 @REM cu128 != cu129 compatibility
-echo https://github.com/woct0rdho/SageAttention/releases/download/v2.2.0-windows.post2/sageattention-2.2.0+cu128torch2.8.0.post2-cp39-abi3-win_amd64.whl> "%EASY_COMFYUI%\SageAttention_Version.txt"
+@REM echo https://github.com/woct0rdho/SageAttention/releases/download/v2.2.0-windows.post2/sageattention-2.2.0+cu128torch2.8.0.post2-cp39-abi3-win_amd64.whl> "%EASY_COMFYUI%\SageAttention_Version.txt"
+echo https://github.com/woct0rdho/SageAttention/releases/download/v2.2.0-windows.post2/sageattention-2.2.0+cu128torch2.7.1.post2-cp39-abi3-win_amd64.whl> "%EASY_COMFYUI%\SageAttention_Version.txt"
 
 :SKIP_PYTORCH_VERSION_LOCK
 
@@ -54,7 +54,7 @@ echo pip install -qq transformers==4.49.0
 pip install -qq transformers==4.49.0
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
-@REM https://github.com/Zuntan03/EasyWan22/issues/1 python 3.12.x
+@REM https://github.com/Zuntan03/EasyWan22/issues/1 python 3.12.x, ModuleNotFoundError: No module named 'yaml'
 echo pip install -qq PyYAML==6.0.2
 pip install -qq PyYAML==6.0.2
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
@@ -107,15 +107,8 @@ if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
 :EASY_PYTHON_MODULES_END
 
-echo pip install -qq huggingface_hub[hf_xet]
-pip install -qq huggingface_hub[hf_xet]
-if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
-
 popd rem "%~dp0.."
 pushd "%~dp0..\ComfyUI\custom_nodes"
-
-@REM REMBG: pip UnicodeDecodeError: 'cp932' codec can't decode byte 0x97 in position 2879: illegal multibyte sequence
-set PYTHONUTF8=1
 
 @REM https://github.com/crystian/ComfyUI-Crystools/commits/main/
 @REM 08/17 2af9ccf0a29c6910e6fcbdd7d2fe96f9bde44eed
@@ -207,6 +200,9 @@ if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 call :GITHUB_HASH_REQUIREMENTS KohakuBlueleaf z-tipo-extension main 6c6bd9f40bca42f9bbab8b1e7a2ba51cb0d5424b
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
+echo pip install -qq huggingface_hub[hf_xet]
+pip install -qq huggingface_hub[hf_xet]
+if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
 popd rem "%~dp0..\ComfyUI\custom_nodes"
 pushd "%~dp0..\ComfyUI"
